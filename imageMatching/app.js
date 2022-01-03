@@ -52,7 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const grid = document.querySelector(".grid");
   var cardChosen = [];
-  cardChosenId = [];
+  var cardChosenId = [];
+  var cardWon = [];
 
   createBoard = () => {
     for (let i = 0; i < cardArray.length; i++) {
@@ -74,7 +75,12 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("You found the match");
       cards[optionOneId].setAttribute("src", "images/white.png");
       cards[optionTwoId].setAttribute("src", "images/white.png");
-    }
+      cardWon.push(cardChosen);
+    } else {
+      cards[optionOneId].setAttribute("src", "images/main.png");
+      cards[optionTwoId].setAttribute("src", "images/main.png");
+      alert("Sorry try again, Pairs don't match");
+      }
   };
   // flipping the cards
 
