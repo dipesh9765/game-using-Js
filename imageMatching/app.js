@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function createBoard() {
     for (let i = 0; i < cardArray.length; i++) {
       var card = document.createElement("img");
-      card.setAttribute("src", "images/main.png");
+      card.setAttribute("src", "images/blank.png");
 
       card.setAttribute("data-id", i);
       card.addEventListener("click", flipCard);
@@ -80,8 +80,8 @@ document.addEventListener("DOMContentLoaded", () => {
       cards[optionTwoId].setAttribute("src", "images/white.png");
       cardsWon.push(cardChosen);
     } else {
-      cards[optionOneId].setAttribute("src", "images/main.png");
-      cards[optionTwoId].setAttribute("src", "images/main.png");
+      cards[optionOneId].setAttribute("src", "images/blank.png");
+      cards[optionTwoId].setAttribute("src", "images/blank.png");
       alert("Sorry try again, Pairs don't match");
     }
     cardChosen = [];
