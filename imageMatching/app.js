@@ -50,49 +50,58 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   ];
 
+  cardArray.sort(() => 0.5 - Math.random());
+
   const grid = document.querySelector(".grid");
+  const resultDisplay = document.getElementById("game-result");
   var cardChosen = [];
   var cardChosenId = [];
-  var cardWon = [];
+  var cardsWon = [];
 
-  createBoard = () => {
+  function createBoard() {
     for (let i = 0; i < cardArray.length; i++) {
       var card = document.createElement("img");
       card.setAttribute("src", "images/main.png");
 
       card.setAttribute("data-id", i);
-      // card.addEventListener("click", flipCard);
+      card.addEventListener("click", flipCard);
       grid.appendChild(card);
     }
-  };
+  }
 
   // checking for matching card
-  checkForMatch = () => {
+  function checkForMatch() {
     var cards = document.querySelectorAll("img");
     const optionOneId = cardChosenId[0];
     const optionTwoId = cardChosenId[1];
-    if (optionOneId == optionTwoId) {
+    if (cardChosen[0] == cardChosen[1]) {
       alert("You found the match");
       cards[optionOneId].setAttribute("src", "images/white.png");
       cards[optionTwoId].setAttribute("src", "images/white.png");
-      cardWon.push(cardChosen);
+      cardsWon.push(cardChosen);
     } else {
       cards[optionOneId].setAttribute("src", "images/main.png");
       cards[optionTwoId].setAttribute("src", "images/main.png");
       alert("Sorry try again, Pairs don't match");
-      }
-  };
+    }
+    cardChosen = [];
+    cardChosenId = [];
+    resultDisplay.textContent = cardsWon.length;
+    if (cardsWon.length == cardArray.length / 2) {
+      resultDisplay.textContent = "Congratulation!! You have won the game";
+    }
+  }
   // flipping the cards
 
-  flipCard = () => {
+  function flipCard() {
     var cardId = this.getAttribute("data-id");
     cardChosen.push(cardArray[cardId].name);
     cardChosenId.push(cardId);
     this.setAttribute("src", cardArray[cardId].img);
     if (cardChosen.length > 1) {
-      setTimer(checkForMatch, 500);
+      setTimeout(checkForMatch, 500);
     }
-  };
+  }
 
   createBoard();
 });
