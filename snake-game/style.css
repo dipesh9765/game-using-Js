@@ -1,25 +1,48 @@
-.grid{
-    width: 200px;
-    height: 200px;
-    display: flex;
-    flex-wrap: wrap;
-    border: 1px solid;
-
+* {
+  margin: 0;
+  padding: 0%;
 }
-button:hover{
-cursor:pointer;
+body {
+  background-color: rgb(43, 21, 21);
+  background: linear-gradient(red, blue);
+}
+.grid {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  border: 3px solid rebeccapurple;
+  border-radius: 8px;
+  margin: 20px 300px 10px 500px;
+  background-color: yellow;
+}
+button {
+  font-size: 30px;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: aquamarine;
+  margin: 50px 300px 10px 630px;
+  color: blue;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.score {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 10px 300px 10px 690px;
+  color: yellow;
+}
+.grid div {
+  width: 50px;
+  height: 50px;
 }
 
-.grid div{
-    width: 20px;
-    height: 20px;
+.snake {
+  background-color: blue;
+  border-radius: 8px;
 }
 
-.snake{
-    background-color: blue;
-
-}
-
-.apple{
-    background-color: red;
+.apple {
+  background-color: red;
+  border-radius: 50px;
 }
